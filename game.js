@@ -1,33 +1,55 @@
-let puntajeUsuario=0;
-let puntajeComputador=0;
-const arreglo=["P","A","T"];
-const puntajeUsuario_span=document.getElementById("usuario-puntuacion");
-const puntajeComputador_span=document.getElementById("computador-puntuacion");
-const piedra_div= document.getElementById("piedra");
-const papel_div= document.getElementById("papel");
-const tijera_div= document.getElementById("tijera");
-const resultado_p= document.querySelector(".resultado");
+let puntajeUsuario = 0;
+let puntajeComputador = 0;
+const arreglo = ["P", "A", "T"];
+const puntajeUsuario_span = document.getElementById("usuario-puntuacion");
+const puntajeComputador_span = document.getElementById("computador-puntuacion");
+const piedra_div = document.getElementById("piedra");
+const papel_div = document.getElementById("papel");
+const tijera_div = document.getElementById("tijera");
+const resultado_p = document.querySelector(".resultado");
 
 main();
-function ganador(){
-puntajeUsuario++;
-puntajeUsuario_span.innerHTML=puntajeUsuario;
-puntajeComputador_span.innerHTML=puntajeComputador;
-resultado_p.innerHTML="GANASTE!!!"
+
+function lectura(letraLec) {
+  var rta = "";
+  if (letraLec === "P") {
+    rta = "Piedra";
+  } else if (letraLec === "A") {
+    rta = "Papel";
+  } else if (letraLec === "T") {
+    rta = "Tijera";
+  }
+  return rta;
 }
-function perdedor(){
+
+function ganador(eleccionUsuario, pc) {
+  const resultadoU = lectura(eleccionUsuario);
+  const resultadoPc = lectura(pc);
+  puntajeUsuario++;
+  puntajeUsuario_span.innerHTML = puntajeUsuario;
+  puntajeComputador_span.innerHTML = puntajeComputador;
+  resultado_p.innerHTML = "GANASTE!!! " + resultadoU + " le gana a " + resultadoPc;
+}
+
+function perdedor(eleccionUsuario, pc) {
+  const resultadoU = lectura(eleccionUsuario);
+  const resultadoPc = lectura(pc);
   puntajeComputador++;
-  puntajeUsuario_span.innerHTML=puntajeUsuario;
-puntajeComputador_span.innerHTML=puntajeComputador;
-resultado_p.innerHTML="PERDISTE :("
+  puntajeUsuario_span.innerHTML = puntajeUsuario;
+  puntajeComputador_span.innerHTML = puntajeComputador;
+  resultado_p.innerHTML = "PERDISTE :( " + resultadoU + " pierde con " + resultadoPc;
 }
-function empate(){
- puntajeUsuario_span.innerHTML=puntajeUsuario;
-puntajeComputador_span.innerHTML=puntajeComputador;
-resultado_p.innerHTML="EMPATE!!!"
+
+function empate(eleccionUsuario, pc) {
+  const resultadoU = lectura(eleccionUsuario);
+  const resultadoPc = lectura(pc);
+  puntajeUsuario_span.innerHTML = puntajeUsuario;
+  puntajeComputador_span.innerHTML = puntajeComputador;
+  resultado_p.innerHTML = "EMPATE!!! " + resultadoU + " empata con " + resultadoPc;
 }
-function eleccion(){
-  const numero= Math.floor(Math.random()*3);
+
+function eleccion() {
+  const numero = Math.floor(Math.random() * 3);
   console.log(numero);
   return arreglo[numero];
 }
@@ -38,17 +60,17 @@ function juego(eleccionUsuario) {
     case "PT":
     case "AP":
     case "TA":
-      ganador();
+      ganador(eleccionUsuario, pc);
       break;
     case "TP":
     case "PA":
     case "AT":
-      perdedor();
+      perdedor(eleccionUsuario, pc);
       break;
     case "TT":
     case "PP":
     case "AA":
-      empate();
+      empate(eleccionUsuario, pc);
       break;
   }
 }
