@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Asap:400,700');
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Asap', sans-serif;
+}
+body{
+  background-color: #FFFFFF;
+}
+header{
+  background-color: #010001;
+  color:#FFFFFF;
+  padding: 20px;
+}
+header > h1{
+  text-align: center;
+ 
+}
+.Puntuacion{
+  margin: 20px auto ;
+  border: 3px solid black;
+  width: 200px;
+  background-color: #F5BD23;
+  color: white;
+  font-size: 46px;
+  border-radius: 5px;
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+}
+
+.Etiquetas{
+  border: 3px solid black;
+  border-radius: 5px;
+  background: #F62F30;
+  font-size:20px;
+  padding: 2px;
+}
+#usuario-etiqueta{
+  position: absolute;
+  top:30px;
+  left: -40;
+}
+#computador-etiqueta{
+  position: absolute;
+  top:30px;
+  right: -70;
+}
+
+.resultado{
+  text-align: center;
+  font-size:30px;
+  font-weight: bold;
+}
+
+.elecciones{
+  
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+}
+.eleccion{
+  
+  border: 3px solid black;
+  border-radius: 20%;
+  padding: 10px;
+  margin: 0 15px;
+  display: inline-block;
+  width:auto;
+  height:200px;
+}
+.eleccion:hover{
+  cursor: pointer;
+  transition: 0.4s;
+  background: #F2B22A;
+  border: 3px solid black;
+  border-radius: 50%;
+  padding: 10px;
+  margin: 0 15px;
+  display: inline-block;
+}
